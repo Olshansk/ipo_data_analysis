@@ -1,1 +1,6 @@
 venv
+*.p
+*.pyc
+ticker_symbols/*.pyc
+all_data
+yearly_data
