@@ -35,22 +35,16 @@ e.g.
 
 ``('TFSC', '2014-8-8', '9.45', '2015-8-10', '9.70')``
 
-**Note: All the prices used are adjusted for present day stock splits.**
-
 ### Parallelization ###
 Retrieving historical data that dates a decade back for a certain company make take a while, so multiple processes are kicked off to run in parallel and reduce the execution time. The limiting factor on the number of processes that can be run is the rate limiting enforced by YQL.
 
-The three stock exchanges investigated are NASDAQ, NYSE and AMEX. Each process is responsible for 1000 companies (at most) from a specific exchange, and is named EXCHANGE_NUM.
-
-There are definitely many more ways to optimize this, this is just the only method I implemented.
+The three stock exchanges investigated are NASDAQ, NYSE and AMEX. Each process is pulls the data for 1000 companies (at most) from a specific exchange sequentially. The output from each process is written out to a file under all_data and year_only_data named EXCHANGE_NUM.
 
 Parsing Data
 ============
 
 Execution
 ---------
-
-After following the execution steps above, run the commands below.
 
 ```
   $ cat all_data/* > all_data.txt
@@ -61,10 +55,10 @@ After following the execution steps above, run the commands below.
 Output
 ------
 
-### all_data ###
+### ipo_data_output.txt ###
   
 Average % change in stock price between close on day of IPO and the date specified in the code (November 27th, 2015). Adjusted for inflation and splits.
 
-### year_only ###
+### ipo_data_year_only_output.txt ###
   
 Average % change in stock price between close on day of IPO and on the first trading day a year after the IPO. Adjusted for inflation and splits.
