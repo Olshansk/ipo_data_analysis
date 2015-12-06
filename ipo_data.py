@@ -41,7 +41,7 @@ def create_file(filename):
 
 def collect_stocks_data(stocks, ipo_to_present_name, ipo_one_year_name):
   f_all_data = create_file("all_data/{}".format(ipo_to_present_name))
-  f_yearly_data = create_file("yearly_data/{}".format(ipo_one_year_name))
+  f_yearly_data = create_file("year_only_data/{}".format(ipo_one_year_name))
 
   for stock in stocks:
     try:
@@ -101,7 +101,7 @@ def collect_stock_exchange_data(stock_exchange):
 
   for i in range(len(stocks_split)):
     ipo_to_present_name = "all_{}_{}".format(stock_exchange.get_exchange_name(), str(i))
-    ipo_one_year_name = "yearly_{}_{}".format(stock_exchange.get_exchange_name(), str(i))
+    ipo_one_year_name = "year_only_{}_{}".format(stock_exchange.get_exchange_name(), str(i))
 
     p = Process(target=collect_stocks_data, args=(stocks_split[i], ipo_to_present_name, ipo_one_year_name, ))
     p.start()
