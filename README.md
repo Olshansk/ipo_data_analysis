@@ -61,3 +61,10 @@ After following the execution steps above, run the commands below.
 Output
 ------
 
+### all_data ###
+  
+Average % change in stock price between close on day of IPO and the date specified in the code (November 27th, 2015). Adjusted for inflation and splits.
+
+### year_only ###
+  
+Average % change in stock price between close on day of IPO and on the first trading day a year after the IPO. Adjusted for inflation and splits.
